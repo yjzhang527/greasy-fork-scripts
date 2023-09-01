@@ -2,13 +2,14 @@
 // @name         LinkedinScraper
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=linkedin.com
 // @namespace    https://github.com/zhangyongjian258/greasy-fork-scripts
-// @version      1.0
+// @version      1.1
 // @match        www.linkedin.com/search/results*
-// @description  获取领克用户名
+// @description  获取领英用户名脚本
 // @author       一笑倾城
 // @grant       GM_addStyle
 // @require http://libs.baidu.com/jquery/2.0.0/jquery.min.js
 // @require https://greasyfork.org/scripts/434540-layerjs-gm-with-css/code/layerjs-gm-with-css.js?version=1065982
+// @license Creative Commons
 // ==/UserScript==
 
 (function () {
