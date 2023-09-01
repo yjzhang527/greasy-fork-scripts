@@ -2,7 +2,7 @@
 // @name         LinkedinScraper
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=linkedin.com
 // @namespace    https://github.com/zhangyongjian258/greasy-fork-scripts
-// @version      1.0
+// @version      1.1
 // @match        www.linkedin.com/search/results*
 // @description  获取领英用户名
 // @author       一笑倾城
