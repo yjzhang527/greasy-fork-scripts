@@ -17,7 +17,6 @@
     let $jq = $;
     unsafeWindow.$jq = $;
     unsafeWindow.layer = layer;
-    console.log(123)
 
     let names = [];  // to store scraped names
 
