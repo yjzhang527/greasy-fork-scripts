@@ -17,7 +17,6 @@
     let $jq = $;
     unsafeWindow.$jq = $;
     unsafeWindow.layer = layer;
-    111
 
     let names = [];  // to store scraped names
 
