@@ -4,7 +4,7 @@
 // @namespace    https://github.com/zhangyongjian258/greasy-fork-scripts
 // @version      1.1
 // @match        www.linkedin.com/search/results*
-// @description  获取领英用户名
+// @description  获取领英用户名脚本
 // @author       一笑倾城
 // @grant       GM_addStyle
 // @require http://libs.baidu.com/jquery/2.0.0/jquery.min.js
