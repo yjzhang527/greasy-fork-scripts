@@ -11,8 +11,7 @@
 // @require https://greasyfork.org/scripts/434540-layerjs-gm-with-css/code/layerjs-gm-with-css.js?version=1065982
 // @license Creative Commons
 // ==/UserScript==
-
-(function () {
+(() => {
     // @run-at      document-start
     let $jq = $;
     unsafeWindow.$jq = $;
