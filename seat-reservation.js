@@ -47,6 +47,7 @@
         $('.form-ui-component-basic-text:eq(2)').val(userInfo.majorClass)
         $('.form-ui-component-basic-text:eq(3)').val(userInfo.telephone)
     }
+    console.log('-----------------------')
     doTask()
     // setScheduledTask(17, 5, doTask);
 })();
