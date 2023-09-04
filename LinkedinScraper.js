@@ -43,6 +43,9 @@
                         break;
                     }
                     buttonTextElements[i].click();
+                    setTimeout(() =>{
+                        $(window).scrollTop($(document).height() - $(window).height());
+                    }, 2000)
                     // 找到按钮，模拟点击操作
                     layer.alert('五秒后切换到下一页！', {
                         time: 5 * 1000,
