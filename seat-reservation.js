@@ -7,7 +7,7 @@
 // @description  自动填写提交脚本
 // @author       一笑倾城
 // @require      http://libs.baidu.com/jquery/2.0.0/jquery.min.js
-// @require      https://scriptcat.org/lib/513/2.0.0/ElementGetter.js
+// @require      http://scriptcat.org/lib/513/2.0.0/ElementGetter.js
 // @license Creative Commons
 // ==/UserScript==
 (async () => {
@@ -31,7 +31,6 @@
         if (timeDiff <= 0) {
             callTask();
         }
-
         timeDiff = timeDiff > 0 ? timeDiff : (timeDiff + 24 * 60 * 60 * 1000);
         setTimeout(function () {
             callTask(); // 首次执行
