@@ -31,6 +31,7 @@
         if (timeDiff <= 0) {
             callTask();
         }
+
         timeDiff = timeDiff > 0 ? timeDiff : (timeDiff + 24 * 60 * 60 * 1000);
         setTimeout(function () {
             callTask(); // 首次执行
