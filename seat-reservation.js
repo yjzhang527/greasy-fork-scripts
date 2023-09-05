@@ -7,7 +7,7 @@
 // @description  自动填写提交脚本
 // @author       一笑倾城
 // @require      http://libs.baidu.com/jquery/2.0.0/jquery.min.js
-// @require      http://scriptcat.org/lib/513/2.0.0/ElementGetter.js
+// @require      https://greasyfork.org/scripts/474584-elementgetter%E5%BC%80%E6%BA%90%E5%BA%93/code/ElementGetter%E5%BC%80%E6%BA%90%E5%BA%93.js?version=1245726
 // @license Creative Commons
 // ==/UserScript==
 (async () => {
