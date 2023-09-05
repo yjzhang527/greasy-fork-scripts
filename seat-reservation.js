@@ -3,25 +3,18 @@
 // @icon         https://cdn.icon-icons.com/icons2/547/PNG/512/1455554407_line-50_icon-icons.com_53299.png
 // @namespace    https://github.com/zhangyongjian258/greasy-fork-scripts
 // @version      1.0
-// @match        https://docs.qq.com/form/page/DVXljVE10cHhyT214*
-// @description  座位自动填写提交脚本
+// @match        https://docs.qq.com/form/page*
+// @description  自动填写提交脚本
 // @author       一笑倾城
-// @grant       GM_addStyle
-// @require http://libs.baidu.com/jquery/2.0.0/jquery.min.js
-// @require https://greasyfork.org/scripts/434540-layerjs-gm-with-css/code/layerjs-gm-with-css.js?version=1065982
+// @require      http://libs.baidu.com/jquery/2.0.0/jquery.min.js
+// @require      https://scriptcat.org/lib/513/2.0.0/ElementGetter.js
 // @license Creative Commons
 // ==/UserScript==
-(() => {
+(async () => {
     let $jq = $;
     unsafeWindow.$jq = $;
-    unsafeWindow.layer = layer;
 
-    const userInfo = {
-        name: 'zhangsan',
-        carNo: '12345',
-        majorClass: '计算机科学',
-        telephone: 'zhangsan'
-    }
+    const textareaValues = ['zhangsan', '12345', '计算机科学', '10086']
 
     /**
      * 设置每日定时任务
@@ -33,22 +26,38 @@
         let taskTime = new Date();
         taskTime.setHours(hour);
         taskTime.setMinutes(minute);
+        taskTime.setSeconds(0);
         let timeDiff = taskTime.getTime() - (new Date()).getTime(); // 获取时间差
+        if (timeDiff <= 0) {
+            callTask();
+        }
         timeDiff = timeDiff > 0 ? timeDiff : (timeDiff + 24 * 60 * 60 * 1000);
-        setTimeout(function() {
+        setTimeout(function () {
             callTask(); // 首次执行
             setInterval(callTask, 24 * 60 * 60 * 1000); // 24小时为循环周期
         }, timeDiff);
     }
 
-    function doTask() {
-        $('.form-ui-component-basic-text:eq(0)').val(userInfo.name)
-        $('.form-ui-component-basic-text:eq(1)').val(userInfo.carNo)
-        $('.form-ui-component-basic-text:eq(2)').val(userInfo.majorClass)
-        $('.form-ui-component-basic-text:eq(3)').val(userInfo.telephone)
+    /** 填写用户参数*/
+    async function doTask() {
+        await elmGetter.get('textarea')
+        $('textarea').each(index => {
+            $('textarea')[index].focus()
+            $('textarea')[index].innerText = textareaValues[index];
+            $('textarea')[index].dispatchEvent(new Event('change', {bubbles: true}))
+        });
+        $('.question-commit button').click()
+        $(await elmGetter.get('.dui-modal-footer')).find('button:eq(1)').click()
     }
-    console.log('-----------------------')
-    doTask()
-    // setScheduledTask(17, 5, doTask);
+
+    setScheduledTask(13, 11, async () => {
+        const commitMode = await elmGetter.get('.dui-m-actionbar-item-text');
+        if (commitMode) {
+            commitMode.click()
+            await doTask()
+        } else {
+            await doTask()
+        }
+    });
 })();
 
