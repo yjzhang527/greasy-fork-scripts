@@ -10,7 +10,7 @@
 // @require      https://greasyfork.org/scripts/474584-elementgetter%E5%BC%80%E6%BA%90%E5%BA%93/code/ElementGetter%E5%BC%80%E6%BA%90%E5%BA%93.js?version=1245726
 // @license Creative Commons
 // ==/UserScript==
-(async () => {
+(() => {
     let $jq = $;
     unsafeWindow.$jq = $;
 
@@ -26,7 +26,7 @@
         let taskTime = new Date();
         taskTime.setHours(hour);
         taskTime.setMinutes(minute);
-        taskTime.setSeconds(0);
+        taskTime.setSeconds(1);
         let timeDiff = taskTime.getTime() - (new Date()).getTime(); // 获取时间差
         if (timeDiff <= 0) {
             callTask();
@@ -50,14 +50,15 @@
         $(await elmGetter.get('.dui-modal-footer')).find('button:eq(1)').click()
     }
 
-    setScheduledTask(13, 11, async () => {
-        const commitMode = await elmGetter.get('.dui-m-actionbar-item-text');
-        if (commitMode) {
-            commitMode.click()
-            await doTask()
-        } else {
-            await doTask()
-        }
+    setScheduledTask(9, 11, () => {
+        elmGetter.get('.question-commit button').then(() => {
+            doTask()
+        })
+
+        elmGetter.get('.dui-m-actionbar-item-text').then(commitButton => {
+            commitButton.click()
+            doTask()
+        })
     });
 })();
 
