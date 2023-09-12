@@ -32,7 +32,7 @@
             callTask();
         }
         timeDiff = timeDiff > 0 ? timeDiff : (timeDiff + 24 * 60 * 60 * 1000);
-        setTimeout(function () {
+        setTimeout(() => {
             callTask(); // 首次执行
             setInterval(callTask, 24 * 60 * 60 * 1000); // 24小时为循环周期
         }, timeDiff);
